@@ -19,13 +19,13 @@ The app will run on `http://0.0.0.0:4000/` and you will see a similar output:
 
 ```bash 
 2021-03-14 14:04:34.098 [main] TRACE Application - {
-    # application.conf @ file:/home/fernando/dev/src/gradle-dockerizer/sample-project/ktor/build/resources/main/application.conf: 5
+    ...
     "application" : {
         ...
     },
-    # application.conf @ file:/home/fernando/dev/src/gradle-dockerizer/sample-project/ktor/build/resources/main/application.conf: 2
+    ...
     "deployment" : {
-        # application.conf @ file:/home/fernando/dev/src/gradle-dockerizer/sample-project/ktor/build/resources/main/application.conf: 3
+        ...
         "port" : 4000
     },
     # Content hidden
