@@ -11,6 +11,19 @@ plugins {
     id ("application")
 }
 
+
+
+buildscript {
+    dependencies {
+        classpath("com.fernandocejas.gradle:dockerizer")
+    }
+}
+
+apply(plugin = "com.fernandocejas.gradle:dockerizer")
+
+
+
+
 java {
     sourceCompatibility = JavaVersion.VERSION_1_8
     targetCompatibility = JavaVersion.VERSION_1_8
@@ -22,7 +35,6 @@ compileKotlin.kotlinOptions { jvmTarget = "1.8" }
 compileTestKotlin.kotlinOptions { jvmTarget = "1.8" }
 
 repositories {
-    jcenter()
     mavenCentral()
 }
 
