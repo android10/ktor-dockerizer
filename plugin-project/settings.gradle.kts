@@ -1,2 +1,2 @@
-rootProject.name = ("com.fernandocejas.gradle.dockerizer")
+rootProject.name = ("com.fernandocejas.gradle")
 include(":plugin")

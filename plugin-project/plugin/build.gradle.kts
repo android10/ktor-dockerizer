@@ -10,9 +10,10 @@ java {
 
 gradlePlugin {
     plugins {
-        create("dockerizerPlugin") {
-            id = "com.fernandocejas.gradle:dockerizer"
+        create("com.fernandocejas.gradle.dockerizer") {
+            id = "com.fernandocejas.gradle.dockerizer"
             implementationClass = "com.fernandocejas.gradle.DockerizerPlugin"
+            version = "1.0.0"
         }
     }
 }
