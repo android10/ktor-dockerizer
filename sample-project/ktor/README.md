@@ -3,38 +3,10 @@
  - Please refer to the [Ktor Documentation](https://ktor.io/) to understand how this framework works. 
  - I have also created a more [complete sample specific to Ktor](https://fernandocejas.com) if you are interested in it.
 
-## Gradle Tasks
-
- - `./gradlew clean`
- - `./gradlew build`
- - `./gradlew run`
-
 ## Run and setup this Project
  
  - Refer to the main `README.md` file of this repository to see how the Docker Plugin works.
  - Application configuration can be found in the `application.conf` file. 
- - You can run by executing `./gradlew run` inside this directory.
-
-The app will run on `http://0.0.0.0:4000/` and you will see a similar output:
-
-```bash 
-2021-03-14 14:04:34.098 [main] TRACE Application - {
-    ...
-    "application" : {
-        ...
-    },
-    ...
-    "deployment" : {
-        ...
-        "port" : 4000
-    },
-    # Content hidden
-    "security" : "***"
-}
-
-2021-03-14 14:04:34.124 [main] INFO  Application - Autoreload is disabled because the development mode is off.
-2021-03-14 14:04:34.287 [main] INFO  Application - Responding at http://0.0.0.0:4000
-```
 
 ## License
 
