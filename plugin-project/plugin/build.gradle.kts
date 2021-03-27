@@ -4,21 +4,22 @@ plugins {
 }
 
 java {
-    sourceCompatibility = JavaVersion.VERSION_1_8
-    targetCompatibility = JavaVersion.VERSION_1_8
+    sourceCompatibility = PluginConfiguration.javaCompatibility
+    targetCompatibility = PluginConfiguration.javaCompatibility
 }
 
 gradlePlugin {
     plugins {
-        create("com.fernandocejas.gradle.dockerizer") {
-            id = "com.fernandocejas.gradle.dockerizer"
-            implementationClass = "com.fernandocejas.gradle.DockerizerPlugin"
-            version = "1.0.0"
+        create(PluginConfiguration.id) {
+            id = PluginConfiguration.id
+            implementationClass = PluginConfiguration.implementationClass
+            version = PluginConfiguration.version
         }
     }
 }
 
 dependencies {
-    implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.4.10")
+    // Application dependencies
+    implementation(Libraries.kotlinStd)
 }
 
