@@ -1,6 +1,3 @@
-import PluginConfiguration.kotlinVersion
-import org.gradle.api.JavaVersion
-
 /**
  * Copyright (C) 2021 Fernando Cejas Open Source Project
  *
@@ -17,13 +14,17 @@ import org.gradle.api.JavaVersion
  * limitations under the License.
  */
 
+import org.gradle.api.JavaVersion
+
 object PluginConfiguration {
     private const val group = "com.fernandocejas.gradle"
 
     const val id = group.plus(".dockerizer")
     const val version = "1.0.0"
     const val implementationClass = group.plus(".DockerizerPlugin")
+}
 
+object SourceCode {
     val javaCompatibility = JavaVersion.VERSION_1_8
     const val kotlinVersion = "1.4.10"
 }
@@ -39,5 +40,5 @@ object BuildPlugins {
 }
 
 object Libraries {
-    const val kotlinStd = "org.jetbrains.kotlin:kotlin-stdlib-jdk8:${kotlinVersion}"
+    const val kotlinStd = "org.jetbrains.kotlin:kotlin-stdlib-jdk8:${SourceCode.kotlinVersion}"
 }

@@ -1,11 +1,11 @@
 plugins {
-    id ("org.jetbrains.kotlin.jvm") version "1.4.10"
-    id ("java-gradle-plugin")
+    id (BuildPlugins.kotlinJvm) version SourceCode.kotlinVersion
+    id (BuildPlugins.javaGradle)
 }
 
 java {
-    sourceCompatibility = PluginConfiguration.javaCompatibility
-    targetCompatibility = PluginConfiguration.javaCompatibility
+    sourceCompatibility = SourceCode.javaCompatibility
+    targetCompatibility = SourceCode.javaCompatibility
 }
 
 gradlePlugin {
