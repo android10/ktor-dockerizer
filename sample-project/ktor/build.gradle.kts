@@ -19,7 +19,7 @@ plugins {
 }
 
 // --------------------------------------------------------------------------------------------------
-// D E V E L O P M E N T     -    R E M O V E     I N    P R O D U C T I O N ! ! !
+// D E V E L O P M E N T     -    R E M O V E     I N    P R O D U C T I O N
 // --------------------------------------------------------------------------------------------------
 /**
  * In order to do Gradle Dependency Substitution for facilitating Development, this is required.
