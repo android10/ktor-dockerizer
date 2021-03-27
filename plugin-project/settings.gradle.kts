@@ -1,2 +1,2 @@
-rootProject.name = ("com.fernandocejas.gradle")
+rootProject.name = "com.fernandocejas.gradle"
 include(":plugin")
