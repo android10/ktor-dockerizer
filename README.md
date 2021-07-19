@@ -7,8 +7,8 @@ So far it has been tested with the following Frameworks:
    
 # Frameworks in the roadmap
 
- - [ ] Play Framework (WIP)
- - [ ] Spring Boot (WIP)
+ - [ ] Play Framework
+ - [ ] Spring Boot
 
 # Building this Project
 
@@ -22,6 +22,11 @@ From the root folder you can execute:
 ## Usage
 
 TODO
+
+## CD/CI - TODO
+
+- [ ] Automate Test Execution
+- [ ] Automate Publishing 
 
 ## License
 
