@@ -1,7 +1,6 @@
 # Ktor Example with Docker Plugin
 
  - Please refer to the [Ktor Documentation](https://ktor.io/) to understand how this framework works. 
- - I have also created a more [complete sample specific to Ktor](https://fernandocejas.com) if you are interested in it.
 
 ## Run and setup this Project
  
