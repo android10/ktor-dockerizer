@@ -34,7 +34,6 @@ object BuildPlugins {
         const val gradleVersion = "6.7"
     }
 
-    //TODO: This is not working when being used as a constant
     const val kotlinJvm = "org.jetbrains.kotlin.jvm"
     const val javaGradle = "java-gradle-plugin"
 }

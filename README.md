@@ -4,18 +4,22 @@ Gradle Plugin that facilitates docker integration when using gradle as a build s
 So far it has been tested with the following Frameworks:
 
  - Ktor
- - Play Framework (WIP)
- - Spring Boot (WIP)
+   
+# Frameworks in the roadmap
+
+ - [ ] Play Framework (WIP)
+ - [ ] Spring Boot (WIP)
 
 # Building this Project
 
 From the root folder you can execute:
 
- - `./gradlew clean build`
- - `./gradlew :sample-project:ktor:dockerizerExample`
- - `./gradlew :sample-project:ktor:run`
+ - `./gradlew clean build`   --> Builds the project
+ - `./gradlew clean test`    --> Runs all tests
+ - `./gradlew runKtor`       --> Runs Ktor
+ - `./gradlew runKtorDocker` --> Runs Ktor in a Docker Container
 
-## Requirements
+## Usage
 
 TODO
 

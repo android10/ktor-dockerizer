@@ -1,24 +1,18 @@
 val projectGroup = "Dockerizer"
 
 tasks.named<Wrapper>("wrapper") {
-    gradleVersion = BuildPlugins.Versions.gradleVersion
+    gradleVersion = "6.7"
     distributionType = Wrapper.DistributionType.ALL
 }
 
-tasks.register("buildProject") {
+tasks.register("runKtor") {
     group = projectGroup
-    description = "Runs App in Development Mode."
-    dependsOn("build")
+    description = "Runs Ktor Sample in a Docker Container."
+    dependsOn(":sample-project:ktor:run")
 }
 
-tasks.register("runSampleKtor") {
+tasks.register("runKtorDocker") {
     group = projectGroup
     description = "Runs Ktor Sample in a Docker Container."
     dependsOn(":sample-project:ktor:dockerizerExample")
-}
-
-tasks.register("runUnitTests") {
-    group = projectGroup
-    description = "Runs all Unit Tests in the project."
-    dependsOn(":plugin-project:plugin:test")
 }

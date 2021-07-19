@@ -22,4 +22,3 @@ dependencies {
     // Application dependencies
     implementation(Libraries.kotlinStd)
 }
-
