@@ -23,10 +23,11 @@ From the root folder you can execute:
 
 TODO
 
-## CD/CI - TODO
+## TODOs
 
 - [ ] Automate Test Execution
 - [ ] Automate Publishing 
+- [ ] Add License 
 
 ## License
 
