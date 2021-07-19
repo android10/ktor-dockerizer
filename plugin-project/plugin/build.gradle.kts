@@ -1,11 +1,11 @@
 plugins {
-    id (BuildPlugins.kotlinJvm) version SourceCode.kotlinVersion
+    id (BuildPlugins.kotlinJvm) version Versions.kotlin
     id (BuildPlugins.javaGradle)
 }
 
 java {
-    sourceCompatibility = SourceCode.javaCompatibility
-    targetCompatibility = SourceCode.javaCompatibility
+    sourceCompatibility = Versions.java
+    targetCompatibility = Versions.java
 }
 
 gradlePlugin {

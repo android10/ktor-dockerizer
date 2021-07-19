@@ -24,20 +24,16 @@ object PluginConfiguration {
     const val implementationClass = group.plus(".DockerizerPlugin")
 }
 
-object SourceCode {
-    val javaCompatibility = JavaVersion.VERSION_1_8
-    const val kotlinVersion = "1.4.10"
+object Versions {
+    val java = JavaVersion.VERSION_1_8
+    const val kotlin = "1.5.21"
 }
 
 object BuildPlugins {
-    object Versions {
-        const val gradleVersion = "6.7"
-    }
-
     const val kotlinJvm = "org.jetbrains.kotlin.jvm"
     const val javaGradle = "java-gradle-plugin"
 }
 
 object Libraries {
-    const val kotlinStd = "org.jetbrains.kotlin:kotlin-stdlib-jdk8:${SourceCode.kotlinVersion}"
+    const val kotlinStd = "org.jetbrains.kotlin:kotlin-stdlib-jdk8:${Versions.kotlin}"
 }

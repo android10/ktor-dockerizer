@@ -4,8 +4,8 @@
 private object Dependencies {
     object Versions {
         const val jvmTarget = "1.8"
-        const val kotlin = "1.4.10"
-        const val ktor = "1.5.2"
+        const val kotlin = "1.5.21"
+        const val ktor = "1.6.1"
         const val logback = "1.2.3"
     }
 

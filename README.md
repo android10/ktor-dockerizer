@@ -1,14 +1,9 @@
-# Gradle Dockerizer
+# Gradle Ktor Dockerizer
 
-Gradle Plugin that facilitates docker integration when using gradle as a build system.
+Gradle Plugin that facilitates docker integration with [Ktor](https://ktor.io/).
 So far it has been tested with the following Frameworks:
 
  - Ktor
-   
-# Frameworks in the roadmap
-
- - [ ] Play Framework
- - [ ] Spring Boot
 
 # Building this Project
 
