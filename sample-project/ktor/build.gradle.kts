@@ -1,5 +1,28 @@
+// --------------------------------------------------------------------------------------------------
+// P R O J E C T     D E P E N D E N C I E S
+// --------------------------------------------------------------------------------------------------
+private object Dependencies {
+    object Versions {
+        const val jvmTarget = "1.8"
+        const val kotlin = "1.4.10"
+        const val ktor = "1.5.2"
+        const val logback = "1.2.3"
+    }
+
+    object Libraries {
+        const val kotlinStdLib = "org.jetbrains.kotlin:kotlin-stdlib-jdk8:${Versions.kotlin}"
+        const val ktorServerCore = "io.ktor:ktor-server-core:${Versions.ktor}"
+        const val ktorServerNetty = "io.ktor:ktor-server-netty:${Versions.ktor}"
+        const val logback = "ch.qos.logback:logback-classic:${Versions.logback}"
+    }
+}
+
+
+// --------------------------------------------------------------------------------------------------
+// P R O J E C T     C O N F I G U R A T I O N
+// --------------------------------------------------------------------------------------------------
 group = "com.fernandocejas.ktor"
-version = "1.0-SNAPSHOT"
+version = "1.0.0"
 
 application {
     mainClass.set("io.ktor.server.netty.EngineMain")
@@ -7,7 +30,7 @@ application {
 }
 
 plugins {
-    id ("org.jetbrains.kotlin.jvm") version "1.5.0-M1"
+    id ("org.jetbrains.kotlin.jvm") version "1.5.21"
     id ("application")
 
     /**
@@ -45,8 +68,8 @@ java {
 
 val compileKotlin: org.jetbrains.kotlin.gradle.tasks.KotlinCompile by tasks
 val compileTestKotlin: org.jetbrains.kotlin.gradle.tasks.KotlinCompile by tasks
-compileKotlin.kotlinOptions { jvmTarget = "1.8" }
-compileTestKotlin.kotlinOptions { jvmTarget = "1.8" }
+compileKotlin.kotlinOptions { jvmTarget = Dependencies.Versions.jvmTarget }
+compileTestKotlin.kotlinOptions { jvmTarget = Dependencies.Versions.jvmTarget }
 
 repositories {
     mavenCentral()
@@ -54,8 +77,8 @@ repositories {
 
 dependencies {
     // Application dependencies
-    implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.4.10")
-    implementation("io.ktor:ktor-server-core:1.5.2")
-    implementation("io.ktor:ktor-server-netty:1.5.2")
-    implementation("ch.qos.logback:logback-classic:1.2.3")
+    implementation(Dependencies.Libraries.kotlinStdLib)
+    implementation(Dependencies.Libraries.ktorServerCore)
+    implementation(Dependencies.Libraries.ktorServerNetty)
+    implementation(Dependencies.Libraries.logback)
 }
