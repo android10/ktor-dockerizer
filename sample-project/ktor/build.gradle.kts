@@ -38,7 +38,7 @@ plugins {
      * It should be uncommented in order to use the plugin.
      * Read below: D E V E L O P M E N T.
      */
-//    id ("com.fernandocejas.gradle.dockerizer") version "1.0.0"
+//    id ("com.fernandocejas.ktor.dockerizer") version "1.0.0"
 }
 
 // --------------------------------------------------------------------------------------------------
@@ -55,10 +55,10 @@ plugins {
  */
 buildscript {
     dependencies {
-        classpath("com.fernandocejas.gradle:dockerizer")
+        classpath("com.fernandocejas.ktor:dockerizer")
     }
 }
-apply(plugin = "com.fernandocejas.gradle.dockerizer")
+apply(plugin = "com.fernandocejas.ktor.dockerizer")
 // --------------------------------------------------------------------------------------------------
 
 java {

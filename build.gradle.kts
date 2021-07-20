@@ -1,4 +1,4 @@
-val projectGroup = "Dockerizer"
+val projectGroup = "Ktor-Dockerizer"
 
 tasks.register("runKtor") {
     group = projectGroup

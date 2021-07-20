@@ -1,4 +1,4 @@
-package com.fernandocejas.gradle
+package com.fernandocejas.ktor
 
 import org.gradle.api.Project
 import javax.inject.Inject

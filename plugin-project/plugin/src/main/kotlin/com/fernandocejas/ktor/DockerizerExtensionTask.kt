@@ -1,4 +1,4 @@
-package com.fernandocejas.gradle
+package com.fernandocejas.ktor
 
 import org.gradle.api.DefaultTask
 import org.gradle.api.provider.Property
@@ -12,7 +12,7 @@ abstract class DockerizerExtensionTask : DefaultTask() {
 
     init {
         description = "Just a dockerizer task"
-        group = "com.fernandocejas.gradle"
+        group = "com.fernandocejas.ktor"
     }
 
     @get:Input
