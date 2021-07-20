@@ -5,7 +5,7 @@ pluginManagement {
     }
 }
 
-rootProject.name = "gradle-dockerizer"
+rootProject.name = "ktor-dockerizer"
 include(":sample-project:ktor")
 includeBuild("plugin-project") {
     dependencySubstitution {
