@@ -1,13 +1,17 @@
 package com.fernandocejas.ktor
 
-import org.gradle.api.Plugin
-import org.gradle.api.Project
-
-const val EXTENSION_NAME = "dockerizerExampleConfig"
-const val TASK_NAME = "dockerizerExample"
+import org.gradle.api.*
 
 abstract class DockerizerPlugin : Plugin<Project> {
     override fun apply(project: Project) {
+        setupFatJar(project)
+        setupDocker(project)
+    }
+
+    /**
+     * TODO
+     */
+    private fun setupFatJar(project: Project) {
         val extension = project.extensions.create(EXTENSION_NAME, DockerizerExtension::class.java, project)
 
         // Add a task that uses configuration from the extension object
@@ -15,5 +19,17 @@ abstract class DockerizerPlugin : Plugin<Project> {
             it.tag.set("This is a tag: extension.tag")
             it.message.set("This is a message: extension.message")
         }
+    }
+
+    /**
+     * TODO
+     */
+    private fun setupDocker(project: Project) {
+
+    }
+
+    companion object {
+        private const val EXTENSION_NAME = "dockerizerExampleConfig"
+        private const val TASK_NAME = "dockerizerExample"
     }
 }

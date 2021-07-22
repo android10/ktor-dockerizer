@@ -2,6 +2,10 @@
 
 Gradle Plugin that facilitates docker integration with [Ktor](https://ktor.io/).
 
+# Usage
+
+TODO
+
 # Local Development
 
 From the root folder you can execute:
@@ -11,17 +15,13 @@ From the root folder you can execute:
  - `./gradlew runKtor`       --> Runs Ktor
  - `./gradlew runKtorDocker` --> Runs Ktor in a Docker Container
 
-## Usage
-
-TODO
-
-## TODOs
+# TODOs
 
 - [ ] Automate Test Execution
 - [ ] Automate Publishing 
 - [ ] Add License 
 
-## License
+# License
 
     Copyright 2021 Fernando Cejas
 
