@@ -5,13 +5,12 @@ import org.gradle.api.provider.*
 import org.gradle.api.tasks.*
 import org.gradle.api.tasks.options.*
 import java.time.*
-import javax.inject.*
 
 abstract class DockerizerDockerTask : DefaultTask() {
 
     init {
         description = "Runs Ktor in a Docker Container."
-        group = DockerizerPlugin.TASKS_GROUP
+        group = DockerizerPlugin.TASK_GROUP
     }
 
     @get:Input
@@ -33,7 +32,4 @@ abstract class DockerizerDockerTask : DefaultTask() {
 
         println("This is Dockerizer")
     }
-
-    @Suppress("UnnecessaryAbstractClass")
-    abstract inner class DockerizerExtension @Inject constructor(project: Project)
 }
