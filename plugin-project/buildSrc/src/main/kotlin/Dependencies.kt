@@ -17,8 +17,7 @@
 import org.gradle.api.JavaVersion
 
 object PluginConfiguration {
-    private const val group = "com.fernandocejas.ktor"
-
+    const val group = "com.fernandocejas.ktor"
     const val id = group.plus(".dockerizer")
     const val version = "1.0.0"
     const val implementationClass = group.plus(".DockerizerPlugin")

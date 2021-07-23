@@ -1,18 +1,17 @@
 package com.fernandocejas.ktor
 
-import org.gradle.api.DefaultTask
-import org.gradle.api.provider.Property
-import org.gradle.api.tasks.Input
-import org.gradle.api.tasks.Optional
-import org.gradle.api.tasks.TaskAction
-import org.gradle.api.tasks.options.Option
+import org.gradle.api.*
+import org.gradle.api.provider.*
+import org.gradle.api.tasks.*
+import org.gradle.api.tasks.options.*
 import java.time.*
+import javax.inject.*
 
-abstract class DockerizerExtensionTask : DefaultTask() {
+abstract class DockerizerDockerTask : DefaultTask() {
 
     init {
-        description = "Just a dockerizer task"
-        group = "com.fernandocejas.ktor"
+        description = "Runs Ktor in a Docker Container."
+        group = DockerizerPlugin.TASKS_GROUP
     }
 
     @get:Input
@@ -34,4 +33,7 @@ abstract class DockerizerExtensionTask : DefaultTask() {
 
         println("This is Dockerizer")
     }
+
+    @Suppress("UnnecessaryAbstractClass")
+    abstract inner class DockerizerExtension @Inject constructor(project: Project)
 }

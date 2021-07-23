@@ -1,13 +1,13 @@
-val projectGroup = "Ktor-Dockerizer"
+val tasksGroup = "Ktor-Dockerizer Plugin Sample"
 
 tasks.register("runKtor") {
-    group = projectGroup
+    group = tasksGroup
     description = "Runs Ktor Sample in a Docker Container."
     dependsOn(":sample-project:ktor:run")
 }
 
 tasks.register("runKtorDocker") {
-    group = projectGroup
+    group = tasksGroup
     description = "Runs Ktor Sample in a Docker Container."
-    dependsOn(":sample-project:ktor:dockerizerExample")
+    dependsOn(":sample-project:ktor:runDocker")
 }

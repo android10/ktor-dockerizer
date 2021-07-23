@@ -12,8 +12,9 @@ gradlePlugin {
     plugins {
         create(PluginConfiguration.id) {
             id = PluginConfiguration.id
-            implementationClass = PluginConfiguration.implementationClass
+            group = PluginConfiguration.group
             version = PluginConfiguration.version
+            implementationClass = PluginConfiguration.implementationClass
         }
     }
 }

@@ -3,33 +3,32 @@ package com.fernandocejas.ktor
 import org.gradle.api.*
 
 abstract class DockerizerPlugin : Plugin<Project> {
+
     override fun apply(project: Project) {
         setupFatJar(project)
         setupDocker(project)
     }
 
     /**
-     * TODO
+     * Reads plugin configuration and sets up FatJar gradle Plugin in order to prepare
+     * the artifact to be run inside a docker container.
      */
     private fun setupFatJar(project: Project) {
-        val extension = project.extensions.create(EXTENSION_NAME, DockerizerExtension::class.java, project)
 
-        // Add a task that uses configuration from the extension object
-        project.tasks.register(TASK_NAME, DockerizerExtensionTask::class.java) {
+    }
+
+    /**
+     * Sets up the main docker task in order to run Ktor inside a docker container.
+     */
+    private fun setupDocker(project: Project) {
+        project.tasks.register(TASK_RUN_DOCKER, DockerizerDockerTask::class.java) {
             it.tag.set("This is a tag: extension.tag")
             it.message.set("This is a message: extension.message")
         }
     }
 
-    /**
-     * TODO
-     */
-    private fun setupDocker(project: Project) {
-
-    }
-
     companion object {
-        private const val EXTENSION_NAME = "dockerizerExampleConfig"
-        private const val TASK_NAME = "dockerizerExample"
+        const val TASKS_GROUP = "Ktor Dockerizer"
+        const val TASK_RUN_DOCKER = "runDocker"
     }
 }
