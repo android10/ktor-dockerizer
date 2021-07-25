@@ -11,9 +11,15 @@ import javax.inject.*
  */
 @Suppress("LeakingThis")
 abstract class DockerizerExtension @Inject constructor(project: Project) {
+    abstract val jarBasename: Property<String>
+    abstract val jarClassifier: Property<String>
+    abstract val jarVersion: Property<String>
     abstract val jarFilename: Property<String>
 
     init {
-        jarFilename.convention("default-filename.jar")
+        jarBasename.convention("ktor")
+        jarClassifier.convention("fat")
+        jarVersion.convention("0.0.1")
+        jarFilename.convention("ktor-fat.jar")
     }
 }

@@ -4,7 +4,6 @@ import org.gradle.api.*
 import org.gradle.api.provider.*
 import org.gradle.api.tasks.*
 import org.gradle.api.tasks.options.*
-import java.time.*
 
 abstract class DockerizerDockerTask : DefaultTask() {
 
@@ -24,12 +23,8 @@ abstract class DockerizerDockerTask : DefaultTask() {
 
     @TaskAction
     fun sampleAction() {
-        Duration.ofSeconds(30)
-        val prettyTag = tag.orNull?.let { "[$it]" } ?: ""
-
-        logger.lifecycle("$prettyTag message is: ${message.orNull}")
-        logger.lifecycle("$prettyTag tag is: ${tag.orNull}")
-
-        println("This is Dockerizer")
+//        println("Message is: ${message.orNull}")
+//        println("Tag is: ${tag.orNull}")
+        println("This is Ktor Dockerizer")
     }
 }

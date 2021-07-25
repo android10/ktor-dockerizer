@@ -24,14 +24,15 @@ abstract class DockerizerPlugin : Plugin<Project> {
      */
     private fun setupDocker(project: Project, pluginConfig: DockerizerExtension) {
         project.tasks.register(TASK_RUN_DOCKER, DockerizerDockerTask::class.java) {
-            it.tag.set("This is a tag: extension.tag")
-            it.message.set("This is a message: filename: ${pluginConfig.jarFilename}")
+            it.tag.set("tag")
+            it.message.set("message: ${pluginConfig.jarFilename.get()}")
         }
     }
 
     companion object {
+        // General Plugin Config
         const val PLUGIN_CONFIGURATION = "dockerizer"
-
+        // Plugin Tasks Config
         const val TASK_GROUP = "Ktor Dockerizer"
         const val TASK_RUN_DOCKER = "runDocker"
     }
