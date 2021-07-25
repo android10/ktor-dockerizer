@@ -23,8 +23,10 @@ abstract class DockerizerDockerTask : DefaultTask() {
 
     @TaskAction
     fun sampleAction() {
-//        println("Message is: ${message.orNull}")
-//        println("Tag is: ${tag.orNull}")
-        println("This is Ktor Dockerizer")
+        doLast {
+//            println("Message is: ${message.orNull}")
+//            println("Tag is: ${tag.orNull}")
+            println("This is Ktor Dockerizer")
+        }
     }
 }
