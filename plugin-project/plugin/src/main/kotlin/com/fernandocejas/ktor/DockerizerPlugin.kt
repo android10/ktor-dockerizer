@@ -16,6 +16,12 @@ abstract class DockerizerPlugin : Plugin<Project> {
      * the artifact to be run inside a docker container.
      */
     private fun setupFatJar(project: Project, pluginExtension: DockerizerExtension) {
+        project.repositories.add(project.repositories.mavenCentral())
+        project.buildscript.repositories.add(project.repositories.mavenCentral())
+        project.buildscript.dependencies.add("classpath", "")
+        project.dependencies.add("implementation", "")
+        project.pluginManager.apply("com.github.johnrengelman.shadow")
+
         val jarFilename = pluginExtension.jarFilename.get()
         val jarVersion = pluginExtension.jarVersion.get()
 
