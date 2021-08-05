@@ -19,13 +19,9 @@ private object Dependencies {
     }
 }
 
-
 // --------------------------------------------------------------------------------------------------
 // P R O J E C T     C O N F I G U R A T I O N
 // --------------------------------------------------------------------------------------------------
-group = "com.fernandocejas.ktor"
-version = "1.0.0"
-
 application {
     mainClass.set("io.ktor.server.netty.EngineMain")
     applicationName = "ktor-sample"
@@ -34,27 +30,10 @@ application {
 plugins {
     id ("org.jetbrains.kotlin.jvm") version "1.5.21"
     id ("application")
-
-    /**
-     * ATTENTION: This is commented in order to facilitate development.
-     * It should be uncommented in order to use the plugin.
-     * Read below: D E V E L O P M E N T.
-     */
-//    id ("com.fernandocejas.ktor.dockerizer") version "1.0.0"
 }
-
 // --------------------------------------------------------------------------------------------------
-// D E V E L O P M E N T     -    R E M O V E     I N    P R O D U C T I O N
+// P L U G I N     C O N F I G U R A T I O N
 // --------------------------------------------------------------------------------------------------
-/**
- * In order to do Gradle Dependency Substitution for facilitating Development, this is required.
- * It could be perfectly removed when using in production, by uncommenting the plugin line above
- * in the plugins {} block.
- *
- * To understand better:
- *  - Refer to the `gradle.settings.kts` file in the root project.
- *  - Gradle Composite Builds: https://docs.gradle.org/current/userguide/composite_builds.html
- */
 buildscript {
     dependencies {
         classpath("com.fernandocejas.ktor:dockerizer")
@@ -64,7 +43,7 @@ apply(plugin = "com.fernandocejas.ktor.dockerizer")
 
 // Configure the extension using a DSL block
 configure<DockerizerExtension> {
-    jarFilename.set("fernando.jar")
+    jarFilename.set("myKtorProject.jar")
     jarVersion.set("1.0")
 }
 // --------------------------------------------------------------------------------------------------

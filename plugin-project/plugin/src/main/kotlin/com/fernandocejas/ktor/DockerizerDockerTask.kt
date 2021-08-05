@@ -8,7 +8,7 @@ import org.gradle.api.tasks.options.*
 abstract class DockerizerDockerTask : DefaultTask() {
 
     init {
-        description = "Runs Ktor in a Docker Container."
+        description = TASK_DESCRIPTION
         group = DockerizerPlugin.TASK_GROUP
     }
 
@@ -26,5 +26,10 @@ abstract class DockerizerDockerTask : DefaultTask() {
 //            println("Message is: ${message.orNull}")
 //            println("Tag is: ${tag.orNull}")
         println("This is Ktor Dockerizer")
+    }
+
+    companion object {
+        const val TASK_NAME = "runDocker"
+        private const val TASK_DESCRIPTION = "Runs Ktor in a Docker Container."
     }
 }

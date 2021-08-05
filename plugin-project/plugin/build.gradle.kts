@@ -10,7 +10,8 @@ java {
 
 gradlePlugin {
     plugins {
-        create(PluginConfiguration.id) {
+//        create(PluginConfiguration.id) {
+        create("dockerizer") {
             id = PluginConfiguration.id
             group = PluginConfiguration.group
             version = PluginConfiguration.version

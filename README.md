@@ -10,16 +10,18 @@ TODO
 
 From the root folder you can execute:
 
- - `./gradlew clean build`   --> Builds the project
- - `./gradlew clean test`    --> Runs all tests
- - `./gradlew runKtor`       --> Runs Ktor
- - `./gradlew runKtorDocker` --> Runs Ktor in a Docker Container
+ - `./gradlew clean build`      --> Builds the project.
+ - `./gradlew clean test`       --> Runs all tests.
+ - `./gradlew runKtor`          --> Runs Ktor.
+ - `./gradlew generateKtorJar`  --> Generates a Jar from the Ktor Project.
+ - `./gradlew runKtorDocker`    --> Runs Ktor in a Docker Container.
 
 # TODOs
 
-- [ ] Automate Test Execution
-- [ ] Automate Publishing 
-- [ ] Add License 
+- [ ] Test Coverage.
+- [ ] Automate Test Execution.
+- [ ] Automate Publishing.
+- [ ] Add License.
 
 # License
 
