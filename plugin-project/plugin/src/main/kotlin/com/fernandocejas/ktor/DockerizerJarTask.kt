@@ -1,6 +1,7 @@
 package com.fernandocejas.ktor
 
 import org.gradle.api.*
+import org.gradle.api.provider.*
 import org.gradle.api.tasks.*
 
 abstract class DockerizerJarTask : DefaultTask() {
@@ -10,8 +11,13 @@ abstract class DockerizerJarTask : DefaultTask() {
         group = DockerizerPlugin.TASK_GROUP
     }
 
+    @get:Input
+    abstract val extension: Property<DockerizerExtension>
+
     @TaskAction
-    fun sampleAction() {
+    fun generateJar() {
+        println("Jar Filename is: ${extension.get().jarFilename.get()}")
+        println("Jar Version is: ${extension.get().jarVersion.get()}")
         println("Generate Ktor Jar!")
     }
 

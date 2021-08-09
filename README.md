@@ -18,6 +18,7 @@ From the root folder you can execute:
 
 # TODOs
 
+- [ ] Support Docker Compose.
 - [ ] Test Coverage.
 - [ ] Automate Test Execution.
 - [ ] Automate Publishing.
