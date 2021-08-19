@@ -27,6 +27,7 @@ object PluginConfiguration {
 object Versions {
     val java = JavaVersion.VERSION_1_8
     const val kotlin = "1.5.21"
+    const val shadow = "7.0.0"
 }
 
 object BuildPlugins {
@@ -36,4 +37,5 @@ object BuildPlugins {
 
 object Libraries {
     const val kotlinStd = "org.jetbrains.kotlin:kotlin-stdlib-jdk8:${Versions.kotlin}"
+    const val shadowJar = "gradle.plugin.com.github.jengelman.gradle.plugins:shadow:${Versions.shadow}"
 }

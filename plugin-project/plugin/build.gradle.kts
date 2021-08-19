@@ -22,4 +22,5 @@ gradlePlugin {
 dependencies {
     // Application dependencies
     implementation(Libraries.kotlinStd)
+    implementation(Libraries.shadowJar)
 }

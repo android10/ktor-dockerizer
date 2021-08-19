@@ -14,10 +14,14 @@ abstract class DockerizerPlugin : Plugin<Project> {
     /**
      * Sets up the generate jar task in order to run Ktor through a fat jar.
      */
-    private fun setupJar(project: Project, pluginExtension: DockerizerExtension) =
-        project.tasks.register(DockerizerJarTask.TASK_NAME, DockerizerJarTask::class.java) {
-            it.extension.set(pluginExtension)
+    private fun setupJar(project: Project, pluginExtension: DockerizerExtension) {
+        with(project) {
+            plugins.apply(EXTERNAL_PLUGIN_SHADOW_JAR)
+            tasks.register(DockerizerJarTask.TASK_NAME, DockerizerJarTask::class.java) {
+                it.extension.set(pluginExtension)
+            }
         }
+    }
 
     /**
      * Sets up the docker task in order to run Ktor inside a docker container.
@@ -28,6 +32,7 @@ abstract class DockerizerPlugin : Plugin<Project> {
         }
 
     companion object {
+        const val EXTERNAL_PLUGIN_SHADOW_JAR = "com.github.johnrengelman.shadow"
         const val PLUGIN_EXTENSION = "dockerizer"
         const val TASK_GROUP = "Ktor Dockerizer"
     }
