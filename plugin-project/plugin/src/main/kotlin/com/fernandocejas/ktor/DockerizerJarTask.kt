@@ -4,6 +4,11 @@ import org.gradle.api.*
 import org.gradle.api.provider.*
 import org.gradle.api.tasks.*
 
+/**
+ * This task is a wrapper over [ShadowJar] in order to decorate
+ * and customize it in order to prepare a jar file to be executed
+ * inside a Docker Container.
+ */
 abstract class DockerizerJarTask : DefaultTask() {
 
     init {
@@ -16,8 +21,8 @@ abstract class DockerizerJarTask : DefaultTask() {
 
     @TaskAction
     fun generateJar() {
-        println("Jar Filename is: ${extension.get().jarFilename.get()}")
-        println("Generate Ktor Jar!")
+        val generatedJarFilename = extension.get().jarFilename.get().trim()
+        logger.lifecycle("Fat jar '$generatedJarFilename' created in ${project.buildDir}/${generatedJarFilename}")
     }
 
     companion object {

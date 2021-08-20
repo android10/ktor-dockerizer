@@ -15,18 +15,18 @@ abstract class DockerizerPlugin : Plugin<Project> {
 
     /**
      * Sets up the generate shadow jar task in order to run Ktor through a fat jar.
+     * It relies on the gradle plugin [EXTERNAL_PLUGIN_SHADOW_JAR] and task
+     * [EXTERNAL_TASK_SHADOW_JAR].
      *
-     * It relies on the gradle plugin [EXTERNAL_PLUGIN_SHADOW_JAR].
-     *
-     * @link: https://imperceptiblethoughts.com/shadow/getting-started/
+     * @see: https://imperceptiblethoughts.com/shadow/getting-started/
      */
     private fun setupShadowJar(project: Project, pluginExtension: DockerizerExtension) {
         with(project) {
-            plugins.apply(EXTERNAL_PLUGIN_SHADOW_JAR)
+            afterEvaluate {
+                plugins.apply(EXTERNAL_PLUGIN_SHADOW_JAR)
 
-            project.afterEvaluate {
-                tasks.withType(ShadowJar::class.java).configureEach {
-                    it.archiveFileName.set("ktor-fernando-fat.jar")
+                project.tasks.withType(ShadowJar::class.java).configureEach {
+                    it.archiveFileName.set(pluginExtension.jarFilename.get().trim())
 
                     it.exclude("META-INF/INDEX.LIST")
                     it.exclude("META-INF/*.SF")
@@ -36,9 +36,9 @@ abstract class DockerizerPlugin : Plugin<Project> {
 
                 tasks.register(DockerizerJarTask.TASK_NAME, DockerizerJarTask::class.java) {
                     it.extension.set(pluginExtension)
+                    it.dependsOn(EXTERNAL_TASK_SHADOW_JAR)
                 }
             }
-
         }
     }
 
@@ -51,7 +51,11 @@ abstract class DockerizerPlugin : Plugin<Project> {
         }
 
     companion object {
+        // 3rd Party Gradle Plugin
         const val EXTERNAL_PLUGIN_SHADOW_JAR = "com.github.johnrengelman.shadow"
+        const val EXTERNAL_TASK_SHADOW_JAR = "shadowJar"
+
+        // Internal Configuration
         const val PLUGIN_EXTENSION = "dockerizer"
         const val TASK_GROUP = "Ktor Dockerizer"
     }

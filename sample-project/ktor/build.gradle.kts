@@ -44,7 +44,6 @@ apply(plugin = "com.fernandocejas.ktor.dockerizer")
 // Configure the extension using a DSL block
 configure<DockerizerExtension> {
     jarFilename.set("myKtorProject.jar")
-    jarVersion.set("1.0")
 }
 // --------------------------------------------------------------------------------------------------
 
