@@ -17,7 +17,6 @@ abstract class DockerizerJarTask : DefaultTask() {
     @TaskAction
     fun generateJar() {
         println("Jar Filename is: ${extension.get().jarFilename.get()}")
-        println("Jar Version is: ${extension.get().jarVersion.get()}")
         println("Generate Ktor Jar!")
     }
 

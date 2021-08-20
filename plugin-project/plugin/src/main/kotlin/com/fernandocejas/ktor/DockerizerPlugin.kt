@@ -26,9 +26,6 @@ abstract class DockerizerPlugin : Plugin<Project> {
 
             project.afterEvaluate {
                 tasks.withType(ShadowJar::class.java).configureEach {
-                    it.archiveBaseName.set("ktor-fernando")
-                    it.archiveClassifier.set("fat")
-                    it.archiveVersion.set("0.0.1")
                     it.archiveFileName.set("ktor-fernando-fat.jar")
 
                     it.exclude("META-INF/INDEX.LIST")
