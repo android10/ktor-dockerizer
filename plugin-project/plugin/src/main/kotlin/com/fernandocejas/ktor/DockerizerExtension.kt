@@ -16,6 +16,6 @@ abstract class DockerizerExtension {
     }
 
     companion object {
-        private const val DEFAULT_JAR_FILENAME = "ktor-dockerized.jar"
+        private const val DEFAULT_JAR_FILENAME = "ktor-fat-jar.jar"
     }
 }

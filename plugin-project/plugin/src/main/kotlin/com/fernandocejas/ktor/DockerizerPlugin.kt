@@ -25,7 +25,7 @@ abstract class DockerizerPlugin : Plugin<Project> {
             afterEvaluate {
                 plugins.apply(EXTERNAL_PLUGIN_SHADOW_JAR)
 
-                project.tasks.withType(ShadowJar::class.java).configureEach {
+                tasks.withType(ShadowJar::class.java).configureEach {
                     it.archiveFileName.set(pluginExtension.jarFilename.get().trim())
 
                     it.exclude("META-INF/INDEX.LIST")
@@ -45,10 +45,16 @@ abstract class DockerizerPlugin : Plugin<Project> {
     /**
      * Sets up the docker task in order to run Ktor inside a docker container.
      */
-    private fun setupDocker(project: Project, pluginExtension: DockerizerExtension) =
-        project.tasks.register(DockerizerDockerTask.TASK_NAME, DockerizerDockerTask::class.java) {
-            it.extension.set(pluginExtension)
+    private fun setupDocker(project: Project, pluginExtension: DockerizerExtension) {
+        with(project) {
+            afterEvaluate {
+                tasks.register(DockerizerDockerTask.TASK_NAME, DockerizerDockerTask::class.java) {
+                    it.extension.set(pluginExtension)
+                    it.dependsOn(DockerizerJarTask.TASK_NAME)
+                }
+            }
         }
+    }
 
     companion object {
         // 3rd Party Gradle Plugin
