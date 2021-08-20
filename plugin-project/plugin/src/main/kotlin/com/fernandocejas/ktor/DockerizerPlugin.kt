@@ -2,7 +2,7 @@ package com.fernandocejas.ktor
 
 import com.github.jengelman.gradle.plugins.shadow.tasks.*
 import org.gradle.api.*
-
+import org.gradle.api.tasks.*
 
 abstract class DockerizerPlugin : Plugin<Project> {
 
@@ -51,6 +51,26 @@ abstract class DockerizerPlugin : Plugin<Project> {
                 tasks.register(DockerizerDockerTask.TASK_NAME, DockerizerDockerTask::class.java) {
                     it.extension.set(pluginExtension)
                     it.dependsOn(DockerizerJarTask.TASK_NAME)
+                }
+
+                tasks.register("dockerBuildImage", Exec::class.java) {
+//                    group = Docker.GROUP
+                    description = "Builds a docker image containing the Ktor Application."
+                    it.commandLine(Docker.Commands.buildExec(Docker.Commands.BUILD))
+                    it.dependsOn(DockerizerJarTask.TASK_NAME)
+                }
+
+//                tasks.register("dockerRun", Exec::class.java) { execTask ->
+                tasks.register("dockerRun") { execTask ->
+//                    group = "Docker.GROUP"
+                    description = "Runs App inside a Docker Container."
+                    execTask.doLast {
+                        exec {
+                            it.commandLine(Docker.Commands.buildExec(Docker.Commands.RUN_ATTACHED))
+                        }
+                    }
+//                    it.commandLine = listOf()
+//                    commandLine(Docker.Commands.buildExec(Docker.Commands.RUN_ATTACHED))
                 }
             }
         }
