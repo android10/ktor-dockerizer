@@ -1,26 +1,34 @@
 package com.fernandocejas.ktor
 
-import com.github.jengelman.gradle.plugins.shadow.tasks.*
-import org.gradle.api.*
-import org.gradle.api.tasks.*
+import com.fernandocejas.ktor.core.Shadow
+import com.github.jengelman.gradle.plugins.shadow.tasks.ShadowJar
+import org.gradle.api.Plugin
+import org.gradle.api.Project
+import org.gradle.api.tasks.Exec
 
 abstract class DockerizerPlugin : Plugin<Project> {
 
     override fun apply(project: Project) {
         val extension = project.extensions.create(PLUGIN_EXTENSION, DockerizerExtension::class.java)
+        val shadow = Shadow(project, extension)
+        val docker = com.fernandocejas.ktor.core.Docker(project, extension)
 
-        setupShadowJar(project, extension)
-        setupDocker(project, extension)
+        project.afterEvaluate {
+            shadow.setupPlugin()
+            docker.setupTasks()
+        }
+        setupShadowPlugin(project, extension)
+        setupDockerTasks(project, extension)
     }
 
     /**
-     * Sets up the generate shadow jar task in order to run Ktor through a fat jar.
-     * It relies on the gradle plugin [EXTERNAL_PLUGIN_SHADOW_JAR] and task
+     * Sets up the shadow gradle plugin to be able to generate a fat jar in order to run Ktor
+     * through a fat jar. It relies on the gradle plugin [EXTERNAL_PLUGIN_SHADOW_JAR] and task
      * [EXTERNAL_TASK_SHADOW_JAR].
      *
      * @see: https://imperceptiblethoughts.com/shadow/getting-started/
      */
-    private fun setupShadowJar(project: Project, pluginExtension: DockerizerExtension) {
+    private fun setupShadowPlugin(project: Project, pluginExtension: DockerizerExtension) {
         with(project) {
             afterEvaluate {
                 plugins.apply(EXTERNAL_PLUGIN_SHADOW_JAR)
@@ -45,7 +53,7 @@ abstract class DockerizerPlugin : Plugin<Project> {
     /**
      * Sets up the docker task in order to run Ktor inside a docker container.
      */
-    private fun setupDocker(project: Project, pluginExtension: DockerizerExtension) {
+    private fun setupDockerTasks(project: Project, pluginExtension: DockerizerExtension) {
         with(project) {
             afterEvaluate {
                 tasks.register(DockerizerDockerTask.TASK_NAME, DockerizerDockerTask::class.java) {
