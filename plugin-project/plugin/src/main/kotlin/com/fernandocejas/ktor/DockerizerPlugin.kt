@@ -14,7 +14,7 @@ abstract class DockerizerPlugin : Plugin<Project> {
         val docker = com.fernandocejas.ktor.core.Docker(project, extension)
 
         project.afterEvaluate {
-            shadow.setupPlugin()
+            shadow.applyPlugin()
             docker.setupTasks()
         }
         setupShadowPlugin(project, extension)
