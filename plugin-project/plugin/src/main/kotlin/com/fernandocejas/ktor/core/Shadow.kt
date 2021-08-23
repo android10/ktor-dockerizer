@@ -2,7 +2,6 @@ package com.fernandocejas.ktor.core
 
 import com.fernandocejas.ktor.DockerizerExtension
 import com.fernandocejas.ktor.DockerizerJarTask
-import com.fernandocejas.ktor.DockerizerPlugin
 import com.github.jengelman.gradle.plugins.shadow.tasks.ShadowJar
 import org.gradle.api.Project
 
@@ -15,7 +14,12 @@ import org.gradle.api.Project
  */
 class Shadow(private val project: Project, private val extension: DockerizerExtension) {
 
-    val pluginExcludes = setOf("")
+    val pluginExcludes = setOf(
+        "META-INF/INDEX.LIST",
+        "META-INF/*.SF",
+        "META-INF/*.DSA",
+        "META-INF/*.RSA"
+    )
 
     /**
      * Sets up the shadow gradle plugin to be able to generate a fat jar in
@@ -26,12 +30,10 @@ class Shadow(private val project: Project, private val extension: DockerizerExte
             plugins.apply(PLUGIN_SHADOW_JAR)
 
             tasks.withType(ShadowJar::class.java).configureEach {
-                it.archiveFileName.set(extension.jarFilename.get().trim())
-
-                it.exclude("META-INF/INDEX.LIST")
-                it.exclude("META-INF/*.SF")
-                it.exclude("META-INF/*.DSA")
-                it.exclude("META-INF/*.RSA")
+                it.apply {
+                    archiveFileName.set(this@Shadow.extension.jarFilename.get().trim())
+                    exclude(pluginExcludes)
+                }
             }
 
             tasks.register(DockerizerJarTask.TASK_NAME, DockerizerJarTask::class.java) {
