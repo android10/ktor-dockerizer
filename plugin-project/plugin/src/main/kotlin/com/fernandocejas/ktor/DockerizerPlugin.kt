@@ -29,14 +29,14 @@ abstract class DockerizerPlugin : Plugin<Project> {
             afterEvaluate {
                 tasks.register(DockerizerDockerTask.TASK_NAME, DockerizerDockerTask::class.java) {
                     it.extension.set(pluginExtension)
-                    it.dependsOn(DockerizerJarTask.TASK_NAME)
+                    it.dependsOn(Shadow.GENERATE_JAR_TASK_NAME)
                 }
 
                 tasks.register("dockerBuildImage", Exec::class.java) {
 //                    group = Docker.GROUP
                     description = "Builds a docker image containing the Ktor Application."
                     it.commandLine(Docker.Commands.buildExec(Docker.Commands.BUILD))
-                    it.dependsOn(DockerizerJarTask.TASK_NAME)
+                    it.dependsOn(Shadow.GENERATE_JAR_TASK_NAME)
                 }
 
 //                tasks.register("dockerRun", Exec::class.java) { execTask ->
