@@ -18,6 +18,7 @@ From the root folder you can execute:
 
 # TODOs
 
+- [ ] Add console output logs.
 - [ ] Documentation.
 - [ ] Support Docker Compose.
 - [ ] Test Coverage.
