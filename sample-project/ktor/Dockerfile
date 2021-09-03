@@ -9,7 +9,7 @@ ENV ENV_APPLICATION_USER ktorapp
 ENV ENV_PORT 5000
 ENV ENV_PORT_SSL 8443
 
-# Ports intedended to be published
+# Ports intended to be published
 EXPOSE $ENV_PORT
 EXPOSE $ENV_PORT_SSL
 
