@@ -9,12 +9,10 @@ abstract class DockerizerPlugin : Plugin<Project> {
 
     override fun apply(project: Project) {
         val extension = project.extensions.create(PLUGIN_EXTENSION, DockerizerExtension::class.java)
-        val shadow = Shadow(project, extension)
-        val docker = Docker(project, extension)
 
         project.afterEvaluate {
-            shadow.applyPlugin()
-            docker.setupTasks()
+            Shadow(project, extension).applyPlugin()
+            Docker(project, extension).setupTasks()
         }
     }
 
