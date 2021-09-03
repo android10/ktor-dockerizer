@@ -21,6 +21,5 @@ tasks.register("buildKtorDocker") {
 tasks.register("runKtorDocker") {
     group = tasksGroup
     description = "Runs Ktor Sample in a Docker Container."
-//    dependsOn(":sample-project:ktor:runDocker")
     dependsOn(":sample-project:ktor:dockerRun")
 }

@@ -1,6 +1,5 @@
 package com.fernandocejas.ktor.core
 
-import com.fernandocejas.ktor.DockerizerDockerTask
 import com.fernandocejas.ktor.DockerizerExtension
 import org.gradle.api.Project
 import org.gradle.api.tasks.Exec
@@ -47,31 +46,24 @@ class Docker(private val project: Project, private val extension: DockerizerExte
      */
     fun setupTasks() {
         with(project) {
-            afterEvaluate {
-                tasks.register(DockerizerDockerTask.TASK_NAME, DockerizerDockerTask::class.java) {
-                    it.extension.set(this@Docker.extension)
-                    it.dependsOn(Shadow.GENERATE_JAR_TASK_NAME)
-                }
-
-                tasks.register("dockerBuildImage", Exec::class.java) {
+            tasks.register("dockerBuildImage", Exec::class.java) {
 //                    group = Docker.GROUP
-                    description = "Builds a docker image containing the Ktor Application."
-                    it.commandLine(Commands.buildExec(Commands.BUILD))
-                    it.dependsOn(Shadow.GENERATE_JAR_TASK_NAME)
-                }
+                description = "Builds a docker image containing the Ktor Application."
+                it.commandLine(Commands.buildExec(Commands.BUILD))
+                it.dependsOn(Shadow.GENERATE_JAR_TASK_NAME)
+            }
 
 //                tasks.register("dockerRun", Exec::class.java) { execTask ->
-                tasks.register("dockerRun") { execTask ->
+            tasks.register("dockerRun") { execTask ->
 //                    group = "Docker.GROUP"
-                    description = "Runs App inside a Docker Container."
-                    execTask.doLast {
-                        exec {
-                            it.commandLine(Commands.buildExec(Commands.RUN_ATTACHED))
-                        }
+                description = "Runs App inside a Docker Container."
+                execTask.doLast {
+                    exec {
+                        it.commandLine(Commands.buildExec(Commands.RUN_ATTACHED))
                     }
+                }
 //                    it.commandLine = listOf()
 //                    commandLine(Docker.Commands.buildExec(Docker.Commands.RUN_ATTACHED))
-                }
             }
         }
     }
