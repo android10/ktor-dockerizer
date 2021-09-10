@@ -24,7 +24,6 @@ From the root folder you can execute:
 - [ ] Test Coverage.
 - [ ] Automate Test Execution.
 - [ ] Automate Publishing.
-- [ ] Add License.
 
 # License
 
