@@ -2,11 +2,11 @@
 FROM openjdk:8-jre-alpine
 
 # Define environment variables
-ENV ENV_ARTIFACT_ID ktor-fat-jar.jar
+ENV ENV_ARTIFACT_ID ktor.jar
 ENV ENV_ARTIFACT_BUILD_DIR ./build/libs
 ENV ENV_ARTIFACT_EXEC_DIR /ktor
 ENV ENV_APPLICATION_USER ktorapp
-ENV ENV_PORT 5000
+ENV ENV_PORT 8080
 ENV ENV_PORT_SSL 8443
 
 # Ports intended to be published

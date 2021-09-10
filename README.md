@@ -8,14 +8,35 @@ TODO
 
 # Local Development
 
+## Sample Execution
+
 From the root folder you can execute:
 
  - `./gradlew clean build`            --> Builds the project.
  - `./gradlew clean test`             --> Runs all tests.
  - `./gradlew runKtor`                --> Runs Ktor.
  - `./gradlew generateKtorJar`        --> Generates a Jar from the Ktor Project.
+ - `./gradlew buildKtorDockerImage`   --> Builds Ktor Sample Docker Image.
  - `./gradlew runKtorDocker`          --> Runs Ktor in a Docker Container.
  - `./gradlew runKtorDockerDetached`  --> Runs Ktor in a Docker Container Detached.
+
+## Test Ktor Sample
+
+From the root folder you can execute:
+
+ 1 - `./gradlew buildKtorDockerImage`
+ 2 - `./gradlew runKtorDockerDetached`
+ 3 - `curl -i -X GET http://localhost:8080`
+
+You should see:
+
+```
+HTTP/1.1 200 OK
+Content-Length: 12
+Content-Type: text/plain; charset=UTF-8
+
+Hello World!
+```
 
 # TODOs
 

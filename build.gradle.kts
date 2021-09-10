@@ -12,9 +12,9 @@ tasks.register("generateKtorJar") {
     dependsOn(":sample-project:ktor:generateJar")
 }
 
-tasks.register("buildKtorDocker") {
+tasks.register("buildKtorDockerImage") {
     group = tasksGroup
-    description = "Runs Ktor Sample in a Docker Container."
+    description = "Builds Ktor Sample Docker Image."
     dependsOn(":sample-project:ktor:dockerBuildImage")
 }
 
