@@ -7,6 +7,7 @@ import org.gradle.api.tasks.Exec
 
 class Docker(private val project: Project, private val extension: DockerizerExtension) {
 
+    //TODO: Use the Plugin Extension to inject all these values.
     object Config {
         const val MEMORY = "512M"
         const val CPUS = "1"
