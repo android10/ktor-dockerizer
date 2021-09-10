@@ -31,9 +31,6 @@ class Shadow(private val project: Project, private val extension: DockerizerExte
      */
     fun applyPlugin() {
         with(project) {
-            //TODO: Extract this to plugin extension as a config field
-            setProperty("mainClassName", "io.ktor.server.netty.EngineMain")
-
             plugins.apply(PLUGIN_SHADOW_JAR)
 
             tasks.withType(ShadowJar::class.java).configureEach {
