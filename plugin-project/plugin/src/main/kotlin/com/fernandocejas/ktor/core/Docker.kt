@@ -58,6 +58,12 @@ class Docker(private val project: Project, private val extension: DockerizerExte
                 description = "Runs App inside a Docker Container."
                 it.commandLine(Commands.buildExec(Commands.RUN_ATTACHED))
             }
+
+            tasks.register("dockerRunDetached", Exec::class.java) {
+                group = DockerizerPlugin.TASK_GROUP
+                description = "Runs App inside a Docker Container Detached."
+                it.commandLine(Commands.buildExec(Commands.RUN_DETACHED))
+            }
         }
     }
 }

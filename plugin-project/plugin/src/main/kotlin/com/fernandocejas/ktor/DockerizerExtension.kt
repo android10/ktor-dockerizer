@@ -12,10 +12,10 @@ abstract class DockerizerExtension {
     abstract val jarFilename: Property<String>
 
     init {
-        jarFilename.set(DEFAULT_JAR_FILENAME)
+        jarFilename.set(JAR_DEFAULT_FILENAME)
     }
 
     companion object {
-        private const val DEFAULT_JAR_FILENAME = "ktor-fat-jar.jar"
+        private const val JAR_DEFAULT_FILENAME = "ktor-fat-jar.jar"
     }
 }
