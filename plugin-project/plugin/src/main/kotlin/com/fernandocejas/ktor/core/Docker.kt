@@ -2,6 +2,7 @@ package com.fernandocejas.ktor.core
 
 import com.fernandocejas.ktor.DockerizerExtension
 import com.fernandocejas.ktor.DockerizerPlugin
+import com.fernandocejas.ktor.extension.emptyString
 import org.gradle.api.Project
 import org.gradle.api.tasks.Exec
 
@@ -65,6 +66,22 @@ class Docker(private val project: Project, private val extension: DockerizerExte
                 description = "Runs App inside a Docker Container Detached."
                 it.commandLine(Commands.buildExec(Commands.RUN_DETACHED))
             }
+        }
+    }
+
+    class Task(private val project: Project, private val name: String,
+               private val description: String, private val command: String,
+               private val dependsOn: String = emptyString()) {
+
+        fun register() {
+            project.tasks.register(name, Exec::class.java) {
+                it.commandLine(command)
+                it.dependsOn(dependsOn)
+            }
+        }
+
+        companion object {
+            const val GROUP = DockerizerPlugin.TASK_GROUP
         }
     }
 }
