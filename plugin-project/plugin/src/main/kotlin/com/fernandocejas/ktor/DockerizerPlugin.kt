@@ -1,7 +1,7 @@
 package com.fernandocejas.ktor
 
 import com.fernandocejas.ktor.core.Docker
-import com.fernandocejas.ktor.core.Shadow
+import com.fernandocejas.ktor.core.jar.Shadow
 import org.gradle.api.Plugin
 import org.gradle.api.Project
 

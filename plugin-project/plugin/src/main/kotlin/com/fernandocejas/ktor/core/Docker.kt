@@ -2,6 +2,7 @@ package com.fernandocejas.ktor.core
 
 import com.fernandocejas.ktor.DockerizerExtension
 import com.fernandocejas.ktor.DockerizerPlugin
+import com.fernandocejas.ktor.core.jar.Shadow
 import com.fernandocejas.ktor.extension.*
 import org.gradle.api.Project
 import org.gradle.api.tasks.Exec
