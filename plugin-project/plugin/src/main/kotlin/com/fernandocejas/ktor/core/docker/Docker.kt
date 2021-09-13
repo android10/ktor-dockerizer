@@ -1,4 +1,4 @@
-package com.fernandocejas.ktor.core
+package com.fernandocejas.ktor.core.docker
 
 import com.fernandocejas.ktor.DockerizerExtension
 import com.fernandocejas.ktor.DockerizerPlugin
@@ -50,11 +50,11 @@ class Docker(private val project: Project, private val extension: DockerizerExte
     private class Command(private val config: Config) {
         private val runParams =
             "-m${config.dockerMemory} " +
-                    "--cpus ${config.dockerCpus} -t " +
-                    "-p ${config.dockerHostPort}:${config.dockerContainerPort} " +
-                    "-p ${config.dockerHostSslPort}:${config.dockerContainerSslPort} " +
-                    "-p ${config.dockerContainerSslPort}:${config.dockerContainerSslPort} " +
-                    "--rm ${config.dockerImageName}"
+            "--cpus ${config.dockerCpus} -t " +
+            "-p ${config.dockerHostPort}:${config.dockerContainerPort} " +
+            "-p ${config.dockerHostSslPort}:${config.dockerContainerSslPort} " +
+            "-p ${config.dockerContainerSslPort}:${config.dockerContainerSslPort} " +
+            "--rm ${config.dockerImageName}"
 
         private val run = "docker run --name=${config.dockerImageName}"
 
