@@ -29,3 +29,9 @@ tasks.register("runKtorDockerDetached") {
     description = "Runs Ktor Sample in a Docker Container Detached."
     dependsOn(":sample-project:ktor:dockerRunDetached")
 }
+
+tasks.register("stopKtorDockerContainer") {
+    group = tasksGroup
+    description = "Runs Ktor Sample in a Docker Container Detached."
+    dependsOn(":sample-project:ktor:dockerStopContainer")
+}
