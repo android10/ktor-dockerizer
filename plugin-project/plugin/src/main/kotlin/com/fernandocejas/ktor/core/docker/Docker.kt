@@ -1,10 +1,7 @@
 package com.fernandocejas.ktor.core.docker
 
 import com.fernandocejas.ktor.DockerizerExtension
-import com.fernandocejas.ktor.core.docker.tasks.DockerBuildImageTask
-import com.fernandocejas.ktor.core.docker.tasks.DockerRunTask
-import com.fernandocejas.ktor.core.docker.tasks.DockerRunTaskDetached
-import com.fernandocejas.ktor.core.docker.tasks.DockerStopContainerTask
+import com.fernandocejas.ktor.core.docker.tasks.*
 import org.gradle.api.Project
 
 /**
@@ -23,6 +20,7 @@ class Docker(private val project: Project, private val extension: DockerizerExte
             DockerBuildImageTask(project, extension),
             DockerRunTask(project, extension),
             DockerRunTaskDetached(project, extension),
-            DockerStopContainerTask(project, extension)
+            DockerStopContainerTask(project, extension),
+            DockerListImagesTask(project, extension)
         )
 }
