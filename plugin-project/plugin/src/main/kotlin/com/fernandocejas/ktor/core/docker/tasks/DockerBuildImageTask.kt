@@ -1,7 +1,8 @@
 package com.fernandocejas.ktor.core.docker.tasks
 
 import com.fernandocejas.ktor.DockerizerExtension
-import com.fernandocejas.ktor.core.docker.tasks.Task.Command.Companion.fromString
+import com.fernandocejas.ktor.core.Task
+import com.fernandocejas.ktor.core.Task.Command.Companion.fromString
 import com.fernandocejas.ktor.core.jar.Shadow
 import org.gradle.api.Project
 
