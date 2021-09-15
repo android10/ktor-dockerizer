@@ -12,7 +12,7 @@ abstract class DockerizerPlugin : Plugin<Project> {
 
         project.afterEvaluate {
             Shadow(project, extension).applyPlugin()
-            Docker(project, extension).setupTasks()
+            Docker(project, extension).registerTasks()
         }
     }
 

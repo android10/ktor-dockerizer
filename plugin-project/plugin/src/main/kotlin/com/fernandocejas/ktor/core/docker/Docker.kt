@@ -10,18 +10,17 @@ import org.gradle.api.Project
  */
 class Docker(private val project: Project, private val extension: DockerizerExtension) {
 
+    private val taskList = listOf(
+        DockerBuildImageTask(project, extension),
+        DockerRunTask(project, extension),
+        DockerRunTaskDetached(project, extension),
+        DockerStopContainerTask(project, extension),
+        DockerListImagesTask(project, extension),
+        DockerListContainersTask(project, extension)
+    )
+
     /**
      * Sets up the docker task in order to run Ktor inside a docker container.
      */
-    fun setupTasks() = createTaskList().map { it.register() }
-
-    private fun createTaskList() =
-        listOf(
-            DockerBuildImageTask(project, extension),
-            DockerRunTask(project, extension),
-            DockerRunTaskDetached(project, extension),
-            DockerStopContainerTask(project, extension),
-            DockerListImagesTask(project, extension),
-            DockerListContainersTask(project, extension)
-        )
+    fun registerTasks() = taskList.map { it.register() }
 }
