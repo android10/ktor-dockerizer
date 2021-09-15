@@ -1,4 +1,4 @@
-package com.fernandocejas.ktor.core
+package com.fernandocejas.ktor.core.docker
 
 import com.fernandocejas.ktor.DockerizerExtension
 import com.fernandocejas.ktor.DockerizerPlugin

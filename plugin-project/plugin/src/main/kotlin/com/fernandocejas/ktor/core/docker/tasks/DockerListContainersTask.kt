@@ -1,8 +1,8 @@
 package com.fernandocejas.ktor.core.docker.tasks
 
 import com.fernandocejas.ktor.DockerizerExtension
-import com.fernandocejas.ktor.core.Task
-import com.fernandocejas.ktor.core.Task.Command.Companion.fromString
+import com.fernandocejas.ktor.core.docker.Task
+import com.fernandocejas.ktor.core.docker.Task.Command.Companion.fromString
 import org.gradle.api.Project
 
 class DockerListContainersTask(project: Project, extension: DockerizerExtension) : Task(project, extension) {
