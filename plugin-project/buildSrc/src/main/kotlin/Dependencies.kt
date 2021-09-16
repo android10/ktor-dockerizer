@@ -39,3 +39,16 @@ object Libraries {
     const val kotlinStd = "org.jetbrains.kotlin:kotlin-stdlib-jdk8:${Versions.kotlin}"
     const val shadowJar = "gradle.plugin.com.github.jengelman.gradle.plugins:shadow:${Versions.shadow}"
 }
+
+object TestLibraries {
+    private object Versions {
+        const val junit4 = "4.13.2"
+        const val mockk = "1.12.0"
+        const val kluent = "1.68"
+    }
+
+    // Testing Specific
+    const val junit4          = "junit:junit:${Versions.junit4}"
+    const val mockk           = "io.mockk:mockk:${Versions.mockk}"
+    const val kluent          = "org.amshove.kluent:kluent:${Versions.kluent}"
+}

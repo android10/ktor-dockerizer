@@ -8,6 +8,10 @@ TODO
 
 # Local Development
 
+## Run Unit Tests
+
+ - `./gradlew runUnitTests`            --> Runs all the Plugin Unit Tests.
+
 ## Sample Execution
 
 From the root folder you can execute:
@@ -21,7 +25,7 @@ From the root folder you can execute:
  - `./gradlew runKtorDockerDetached`   --> Runs Ktor in a Docker Container Detached.
  - `./gradlew stopKtorDockerContainer` --> Stops Docker Container running Ktor.
 
-## Test Ktor Sample
+## Test Manually Ktor Sample
 
 From the root folder you can execute:
 

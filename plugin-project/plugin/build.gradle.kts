@@ -23,4 +23,9 @@ dependencies {
     // Application dependencies
     implementation(Libraries.kotlinStd)
     implementation(Libraries.shadowJar)
+
+    // Test dependencies
+    testImplementation(TestLibraries.junit4)
+    testImplementation(TestLibraries.mockk)
+    testImplementation(TestLibraries.kluent)
 }
