@@ -45,10 +45,8 @@ Hello World!
 
 # TODOs
 
-- [ ] Add console output logs.
-- [ ] Documentation: Enumerate all the Docker tasks.
+- [ ] Documentation.
 - [ ] Support Docker Compose.
-- [ ] Test Coverage.
 - [ ] Automate Test Execution.
 - [ ] Automate Publishing.
 
