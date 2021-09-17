@@ -29,9 +29,9 @@ From the root folder you can execute:
 
 From the root folder you can execute:
 
- 1 - `./gradlew buildKtorDockerImage`
- 2 - `./gradlew runKtorDockerDetached`
- 3 - `curl -i -X GET http://localhost:8080`
+ - `./gradlew buildKtorDockerImage`
+ - `./gradlew runKtorDockerDetached`
+ - `curl -i -X GET http://localhost:8080`
 
 You should see:
 
