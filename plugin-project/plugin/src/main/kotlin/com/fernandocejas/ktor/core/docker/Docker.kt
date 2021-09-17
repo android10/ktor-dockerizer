@@ -16,7 +16,9 @@ class Docker(private val project: Project, private val extension: DockerizerExte
         DockerRunTaskDetached(project, extension),
         DockerStopContainerTask(project, extension),
         DockerListImagesTask(project, extension),
-        DockerListContainersTask(project, extension)
+        DockerListContainersTask(project, extension),
+        DockerRemoveImageTask(project, extension),
+        DockerDeleteDanglingImagesTask(project, extension)
     )
 
     /**

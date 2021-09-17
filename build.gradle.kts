@@ -43,9 +43,8 @@ tasks.register("stopKtorDockerContainer") {
 //---------------------------------------------------------------------------------------
 // Gradle Tasks for Plugin Development
 //---------------------------------------------------------------------------------------
-tasks.register("runUnitTests") {
+tasks.register("runUnitTests", Exec::class.java) {
     group = tasksGroupKtorDockerizerPlugin
     description = "Runs all the Plugin Unit Tests."
-    //TODO: Fix this
-    dependsOn(":plugin-project:test")
+    commandLine("./gradlew -p plugin-project test".split(" "))
 }

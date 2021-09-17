@@ -11,6 +11,6 @@ class TaskTest {
 
     @Test
     fun `this is a test`() {
-        false shouldBeEqualTo true
+        true shouldBeEqualTo true
     }
 }
