@@ -23,7 +23,7 @@
 hs_err_pid*
 
 # Project
-.gradle/bin
+.gradle
 .idea/
 buildSrc/build/
 build/

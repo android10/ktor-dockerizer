@@ -4,7 +4,8 @@ Gradle Plugin that facilitates docker integration with [Ktor](https://ktor.io/).
 
 # Usage
 
-TODO
+ - TODO
+ - Make sure your current user can run docker without sudo.
 
 # Local Development
 
