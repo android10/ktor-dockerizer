@@ -34,7 +34,8 @@ class TaskTest: UnitTest() {
     @Test
     fun `given a Dockerizer Task, when register is called, then it is registered via gradle`() {
         val slotExec = slot<Exec>()
-        every { taskContainer.register(TASK_NAME, Exec::class.java, capture(slotExec)) }
+        every { taskContainer.register(any(), any(), capture(slotExec)) }
+//        every { taskContainer.register(TASK_NAME, Exec::class.java, capture(slotExec)) }
 
 //        taskContainer.register(TASK_NAME, Exec::class.java, capture(slotExec))
         task.register()
